@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaGo - Consulta inteligente de medicamentos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo">
+                <span>+</span>Pharma<span>Go</span>
+            </div>
+            <div class="preloader-bar">
+                <div class="preloader-bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROMO BANNER -->
+    <div class="promo-banner" id="promoBanner">
+        <div class="promo-text">
+            🎉 <strong>¡Nuevo!</strong> Consulta disponibilidad en tiempo real de +500 medicamentos — <span class="promo-link" id="promoClose">Cerrar</span>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="logo">
+            <div class="logo-icon">+</div>
+            Pharma<span>Go</span>
+        </div>
+
+        <nav id="menu">
+            <a href="#inicio" class="nav-link active">Inicio</a>
+            <a href="#buscar" class="nav-link">Medicamentos</a>
+            <a href="#categorias" class="nav-link">Categorías</a>
+            <a href="#puntos" class="nav-link">Puntos</a>
+            <a href="#testimonios" class="nav-link">Opiniones</a>
+            <a href="#ayuda" class="nav-link">Ayuda</a>
+        </nav>
+
+        <div class="header-botones">
+            <button id="tema" class="icon-btn" aria-label="Cambiar tema">
+                <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+            <button id="favoritosBtn" class="icon-btn fav-btn" aria-label="Favoritos">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <span class="fav-count" id="favCount">0</span>
+            </button>
+            <button id="login" class="btn-login">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+                Ingresar
+            </button>
+            <button id="hamburger" class="hamburger" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="#inicio" class="mobile-link">Inicio</a>
+            <a href="#buscar" class="mobile-link">Medicamentos</a>
+            <a href="#categorias" class="mobile-link">Categorías</a>
+            <a href="#puntos" class="mobile-link">Puntos</a>
+            <a href="#testimonios" class="mobile-link">Opiniones</a>
+            <a href="#ayuda" class="mobile-link">Ayuda</a>
+        </nav>
+    </div>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="inicio">
+            <div class="hero-bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+
+            <div class="hero-contenido" data-animate="fade-right">
+                <div class="etiqueta">
+                    <span class="etiqueta-dot"></span>
+                    Consulta inteligente de medicamentos
+                </div>
+
+                <h1>
+                    Encuentra tu
+                    <span class="gradient-text">medicamento</span>
+                    antes de salir.
+                </h1>
+
+                <p class="hero-desc">
+                    Consulta la disponibilidad en tiempo real de tus medicamentos
+                    y encuentra el punto de dispensación más cercano en segundos.
+                </p>
+
+                <div class="hero-botones">
+                    <button class="btn-principal" id="irBuscar">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        Buscar medicamento
+                    </button>
+                    <button class="btn-secundario" id="verComoFunciona">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                        ¿Cómo funciona?
+                    </button>
+                </div>
+
+                <div class="datos-rapidos">
+                    <div class="dato-item">
+                        <div class="dato-numero" data-count="24">0</div>
+                        <div class="dato-sufijo">/7</div>
+                        <div class="dato-label">Consulta</div>
+                    </div>
+                    <div class="dato-item">
+                        <div class="dato-numero" data-count="500">0</div>
+                        <div class="dato-sufijo">+</div>
+                        <div class="dato-label">Medicamentos</div>
+                    </div>
+                    <div class="dato-item">
+                        <div class="dato-numero" data-count="80">0</div>
+                        <div class="dato-sufijo">+</div>
+                        <div class="dato-label">Puntos</div>
+                    </div>
+                    <div class="dato-item">
+                        <div class="dato-numero" data-count="12">0</div>
+                        <div class="dato-sufijo">k+</div>
+                        <div class="dato-label">Usuarios</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual" data-animate="fade-left">
+                <div class="tarjeta-medicamento">
+                    <div class="tarjeta-header">
+                        <span class="tarjeta-brand">PHARMAGO</span>
+                        <span class="tarjeta-status">
+                            <span class="status-dot"></span>
+                            DISPONIBLE
+                        </span>
+                    </div>
+
+                    <div class="pastilla-icono">
+                        <span>💊</span>
+                    </div>
+
+                    <h3>Acetaminofén</h3>
+                    <p class="tarjeta-desc">Tabletas 500 mg</p>
+
+                    <div class="tarjeta-info-row">
+                        <div class="info-item">
+                            <span class="info-label">Disponibilidad</span>
+                            <span class="info-value alta">Alta</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Precio</span>
+                            <span class="info-value precio">$3.500</span>
+                        </div>
+                    </div>
+
+                    <div class="barra-progreso">
+                        <div class="barra-fill" style="width: 80%"></div>
+                    </div>
+
+                    <div class="tarjeta-footer">
+                        <small>Actualizado hace 2 min</small>
+                        <button class="btn-fav-tarjeta" aria-label="Favorito">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Floating cards -->
+                <div class="floating-card fc-1" data-animate="fade-up" data-delay="200">
+                    <div class="fc-icon">📍</div>
+                    <div class="fc-text">
+                        <strong>Punto cercano</strong>
+                        <span>A 1.2 km de ti</span>
+                    </div>
+                </div>
+                <div class="floating-card fc-2" data-animate="fade-up" data-delay="400">
+                    <div class="fc-icon">🚚</div>
+                    <div class="fc-text">
+                        <strong>Domicilio gratis</strong>
+                        <span>Pedidos +$20.000</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARCAS CONFIANZA -->
+        <section class="marcas-seccion">
+            <p class="marcas-texto">Respaldados por</p>
+            <div class="marcas-grid">
+                <div class="marca">🏥 Cajas de Compensación</div>
+                <div class="marca">💊 Colfarmaco</div>
+                <div class="marca">🔬 Invima</div>
+                <div class="marca">🛡️ MinSalud</div>
+                <div class="marca">⚕️ EPS Asociadas</div>
+            </div>
+        </section>
+
+        <!-- BUSCADOR -->
+        <section class="buscar-seccion" id="buscar">
+            <div class="titulo-seccion" data-animate="fade-up">
+                <p class="seccion-etiqueta">CONSULTA</p>
+                <h2>
+                    ¿Qué medicamento
+                    <span class="gradient-text">necesitas?</span>
+                </h2>
+                <span class="seccion-subtitulo">
+                    Escribe el nombre del medicamento para consultar disponibilidad y precio en tiempo real.
+                </span>
+            </div>
+
+            <div class="buscador-wrapper" data-animate="fade-up" data-delay="100">
+                <div class="buscador">
+                    <svg class="buscador-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input
+                        type="text"
+                        id="inputMedicamento"
+                        placeholder="Ej: Acetaminofén, Losartán, Metformina..."
+                        autocomplete="off"
+                    >
+                    <div class="buscador-acciones">
+                        <button class="btn-voz" id="btnVoz" aria-label="Búsqueda por voz">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                        </button>
+                        <button class="btn-buscar" id="btnBuscar">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+                <!-- Autocomplete -->
+                <div class="autocomplete" id="autocomplete"></div>
+            </div>
+
+            <div class="filtros" data-animate="fade-up" data-delay="200">
+                <button class="filtro activo" data-filtro="todos">
+                    <span class="filtro-icon">📋</span> Todos
+                </button>
+                <button class="filtro" data-filtro="disponible">
+                    <span class="filtro-dot green"></span> Disponibles
+                </button>
+                <button class="filtro" data-filtro="agotado">
+                    <span class="filtro-dot red"></span> Agotados
+                </button>
+                <button class="filtro" data-filtro="popular">
+                    <span class="filtro-icon">🔥</span> Populares
+                </button>
+            </div>
+
+            <div id="resultados" class="medicamentos-grid">
+                <!-- JS genera las tarjetas -->
+            </div>
+
+            <div class="ver-mas-wrapper" id="verMasWrapper" style="display:none">
+                <button class="btn-ver-mas" id="verMas">Cargar más medicamentos</button>
+            </div>
+        </section>
+
+        <!-- CATEGORÍAS -->
+        <section class="categorias-seccion" id="categorias">
+            <div class="titulo-seccion" data-animate="fade-up">
+                <p class="seccion-etiqueta">EXPLORA</p>
+                <h2>
+                    Categorías de
+                    <span class="gradient-text">medicamentos</span>
+                </h2>
+                <span class="seccion-subtitulo">
+                    Encuentra rápidamente lo que necesitas por categoría.
+                </span>
+            </div>
+
+            <div class="categorias-grid" data-animate="fade-up" data-delay="100">
+                <div class="categoria-card" data-categoria="dolor">
+                    <div class="categoria-icono">
+                        <span>💊</span>
+                    </div>
+                    <h3>Dolor y Fiebre</h3>
+                    <p>Analgesicos y antipiréticos</p>
+                    <span class="categoria-count">24 medicamentos</span>
+                </div>
+                <div class="categoria-card" data-categoria="cardiovascular">
+                    <div class="categoria-icono">
+                        <span>❤️</span>
+                    </div>
+                    <h3>Cardiovascular</h3>
+                    <p>Antihipertensivos y cardíacos</p>
+                    <span class="categoria-count">18 medicamentos</span>
+                </div>
+                <div class="categoria-card" data-categoria="diabetes">
+                    <div class="categoria-icono">
+                        <span>🩸</span>
+                    </div>
+                    <h3>Diabetes</h3>
+                    <p>Antidiabéticos y control</p>
+                    <span class="categoria-count">12 medicamentos</span>
+                </div>
+                <div class="categoria-card" data-categoria="digestivo">
+                    <div class="categoria-icono">
+                        <span>🫁</span>
+                    </div>
+                    <h3>Digestivo</h3>
+                    <p>Antiulcerosos y digestivos</p>
+                    <span class="categoria-count">15 medicamentos</span>
+                </div>
+                <div class="categoria-card" data-categoria="infecciones">
+                    <div class="categoria-icono">
+                        <span>🦠</span>
+                    </div>
+                    <h3>Infecciones</h3>
+                    <p>Antibióticos y antimicrobianos</p>
+                    <span class="categoria-count">21 medicamentos</span>
+                </div>
+                <div class="categoria-card" data-categoria="alergias">
+                    <div class="categoria-icono">
+                        <span>🤧</span>
+                    </div>
+                    <h3>Alergias</h3>
+                    <p>Antihistamínicos y control</p>
+                    <span class="categoria-count">9 medicamentos</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CÓMO FUNCIONA -->
+        <section class="funciona-seccion" id="funciona">
+            <div class="titulo-seccion" data-animate="fade-up">
+                <p class="seccion-etiqueta">MUY FÁCIL</p>
+                <h2>
+                    ¿Cómo funciona
+                    <span class="gradient-text">PharmaGo?</span>
+                </h2>
+            </div>
+
+            <div class="pasos" data-animate="fade-up" data-delay="100">
+                <div class="paso">
+                    <div class="paso-numero">01</div>
+                    <div class="paso-icono-wrapper">
+                        <div class="paso-icono">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        </div>
+                    </div>
+                    <h3>Busca</h3>
+                    <p>Escribe el nombre del medicamento que necesitas en nuestro buscador inteligente.</p>
+                </div>
+
+                <div class="paso-conector"></div>
+
+                <div class="paso">
+                    <div class="paso-numero">02</div>
+                    <div class="paso-icono-wrapper">
+                        <div class="paso-icono">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                    </div>
+                    <h3>Consulta</h3>
+                    <p>Revisa disponibilidad, precio, dosis y puntos de dispensación en tiempo real.</p>
+                </div>
+
+                <div class="paso-conector"></div>
+
+                <div class="paso">
+                    <div class="paso-numero">03</div>
+                    <div class="paso-icono-wrapper">
+                        <div class="paso-icono">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                    </div>
+                    <h3>Encuentra</h3>
+                    <p>Localiza el punto de dispensación más cercano y recibe o recoge tu medicamento.</p>
+                </div>
+            </div>
+
+            <div class="funciona-features" data-animate="fade-up" data-delay="200">
+                <div class="feature">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <span>Sin registro requerido</span>
+                </div>
+                <div class="feature">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <span>Datos actualizados</span>
+                </div>
+                <div class="feature">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <span>100% gratuito</span>
+                </div>
+                <div class="feature">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <span>Cobertura nacional</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUNTOS -->
+        <section class="puntos-seccion" id="puntos">
+            <div class="puntos-texto" data-animate="fade-right">
+                <p class="seccion-etiqueta">ENCUENTRA TU PUNTO</p>
+                <h2>
+                    Tu medicamento
+                    <span class="gradient-text-dark">más cerca.</span>
+                </h2>
+                <p class="puntos-desc">
+                    Consulta los puntos de dispensación disponibles en todo el país y encuentra la opción más conveniente para ti. Con cobertura en las principales ciudades.
+                </p>
+
+                <div class="puntos-stats">
+                    <div class="punto-stat">
+                        <strong>80+</strong>
+                        <span>Puntos en Bogotá</span>
+                    </div>
+                    <div class="punto-stat">
+                        <strong>200+</strong>
+                        <span>Puntos en Colombia</span>
+                    </div>
+                    <div class="punto-stat">
+                        <strong>24h</strong>
+                        <span>Disponibilidad</span>
+                    </div>
+                </div>
+
+                <div class="puntos-ciudades">
+                    <button class="ciudad-btn activo" data-ciudad="bogota">Bogotá</button>
+                    <button class="ciudad-btn" data-ciudad="medellin">Medellín</button>
+                    <button class="ciudad-btn" data-ciudad="cali">Cali</button>
+                    <button class="ciudad-btn" data-ciudad="barranquilla">Barranquilla</button>
+                </div>
+
+                <button class="btn-principal btn-blanco" id="btnPuntos">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Ver puntos de atención
+                </button>
+            </div>
+
+            <div class="mapa-wrapper" data-animate="fade-left">
+                <div class="mapa-cuadro">
+                    <div class="mapa-grid"></div>
+
+                    <div class="pin" style="left:20%;top:25%"><div class="pin-dot"></div><div class="pin-label">Chapinero</div></div>
+                    <div class="pin" style="right:20%;top:35%"><div class="pin-dot"></div><div class="pin-label">Suba</div></div>
+                    <div class="pin" style="left:45%;bottom:20%"><div class="pin-dot"></div><div class="pin-label">Kennedy</div></div>
+                    <div class="pin" style="right:35%;top:15%"><div class="pin-dot"></div><div class="pin-label">Usaquén</div></div>
+                    <div class="pin" style="left:30%;bottom:40%"><div class="pin-dot"></div><div class="pin-label">Teusaquillo</div></div>
+                    <div class="pin" style="right:15%;bottom:30%"><div class="pin-dot"></div><div class="pin-label">Bosa</div></div>
+
+                    <div class="centro-mapa">
+                        <div class="centro-icon">📍</div>
+                        <strong id="ciudadMapa">Bogotá</strong>
+                        <span id="puntosMapa">+80 puntos disponibles</span>
+                    </div>
+
+                    <div class="mapa-leyenda">
+                        <div class="leyenda-item"><div class="leyenda-dot"></div>Punto abierto</div>
+                        <div class="leyenda-item"><div class="leyenda-dot closed"></div>Cerrado temporal</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROMOCIONES -->
+        <section class="promo-seccion">
+            <div class="titulo-seccion" data-animate="fade-up">
+                <p class="seccion-etiqueta">OFERTAS</p>
+                <h2>
+                    Promociones
+                    <span class="gradient-text">de la semana</span>
+                </h2>
+            </div>
+            <div class="promo-grid" data-animate="fade-up" data-delay="100">
+                <div class="promo-card">
+                    <div class="promo-badge">-25%</div>
+                    <div class="promo-icon">💊</div>
+                    <h3>Acetaminofén</h3>
+                    <p>Tabletas 500 mg x 10</p>
+                    <div class="promo-precios">
+                        <span class="precio-antes">$4.600</span>
+                        <span class="precio-ahora">$3.500</span>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-badge">-30%</div>
+                    <div class="promo-icon">🧴</div>
+                    <h3>Loratadina</h3>
+                    <p>Tabletas 10 mg x 10</p>
+                    <div class="promo-precios">
+                        <span class="precio-antes">$8.500</span>
+                        <span class="precio-ahora">$5.950</span>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-badge">-20%</div>
+                    <div class="promo-icon">🩺</div>
+                    <h3>Omeprazol</h3>
+                    <p>Cápsulas 20 mg x 14</p>
+                    <div class="promo-precios">
+                        <span class="precio-antes">$12.000</span>
+                        <span class="precio-ahora">$9.600</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIOS -->
+        <section class="testimonios-seccion" id="testimonios">
+            <div class="titulo-seccion" data-animate="fade-up">
+                <p class="seccion-etiqueta">OPINIONES</p>
+                <h2>
+                    Lo que dicen
+                    <span class="gradient-text">nuestros usuarios</span>
+                </h2>
+            </div>
+            <div class="testimonios-grid" data-animate="fade-up" data-delay="100">
+                <div class="testimonio">
+                    <div class="testimonio-estrellas">★★★★★</div>
+                    <p class="testimonio-texto">"PharmaGo me ahorra mucho tiempo. Antes iba hasta la droguería y no encontraba el medicamento. Ahora consulto antes de salir."</p>
+                    <div class="testimonio-autor">
+                        <div class="autor-avatar">MC</div>
+                        <div>
+                            <strong>María Campos</strong>
+                            <span>Bogotá</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonio">
+                    <div class="testimonio-estrellas">★★★★★</div>
+                    <p class="testimonio-texto">"Excelente servicio. Puedo ver la disponibilidad en tiempo real y el punto más cercano. Mucho mejor que otras plataformas."</p>
+                    <div class="testimonio-autor">
+                        <div class="autor-avatar">JR</div>
+                        <div>
+                            <strong>Juan Rodríguez</strong>
+                            <span>Medellín</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonio">
+                    <div class="testimonio-estrellas">★★★★★</div>
+                    <p class="testimonio-texto">"La función de alertas es genial. Me notifican cuando mi medicamento vuelve a estar disponible. No conocía nada igual."</p>
+                    <div class="testimonio-autor">
+                        <div class="autor-avatar">LP</div>
+                        <div>
+                            <strong>Lucía Pérez</strong>
+                            <span>Cali</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DOMICILIO -->
+        <section class="domicilio-seccion">
+            <div class="domicilio-contenido" data-animate="fade-right">
+                <p class="seccion-etiqueta">DOMICILIO</p>
+                <h2>
+                    Recibe tus medicamentos
+                    <span class="gradient-text">en casa</span>
+                </h2>
+                <p class="domicilio-desc">
+                    Haz tu pedido por la plataforma y recibe tus medicamentos directamente en la puerta de tu casa. Domicilio gratis en pedidos superiores a $20.000.
+                </p>
+                <div class="domicilio-features">
+                    <div class="domicilio-feature">
+                        <span>🚚</span>
+                        <span>Envío express</span>
+                    </div>
+                    <div class="domicilio-feature">
+                        <span>📦</span>
+                        <span>Empaque seguro</span>
+                    </div>
+                    <div class="domicilio-feature">
+                        <span>💳</span>
+                        <span>Pago contra entrega</span>
+                    </div>
+                </div>
+                <button class="btn-principal" id="btnDomicilio">
+                    Solicitar domicilio
+                </button>
+            </div>
+            <div class="domicilio-visual" data-animate="fade-left">
+                <div class="domicilio-ilustracion">
+                    <div class="domicilio-paso-visual dpv-1">
+                        <span>📱</span>
+                        <small>Pedir</small>
+                    </div>
+                    <div class="domicilio-paso-visual dpv-2">
+                        <span>✅</span>
+                        <small>Confirmar</small>
+                    </div>
+                    <div class="domicilio-paso-visual dpv-3">
+                        <span>🚚</span>
+                        <small>Recibir</small>
+                    </div>
+                    <div class="domicilio-linea"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AYUDA / FAQ -->
+        <section class="ayuda-seccion" id="ayuda">
+            <div class="titulo-seccion" data-animate="fade-up">
+                <p class="seccion-etiqueta">¿NECESITAS AYUDA?</p>
+                <h2>
+                    Preguntas
+                    <span class="gradient-text">frecuentes</span>
+                </h2>
+            </div>
+
+            <div class="faq-lista" data-animate="fade-up" data-delay="100">
+                <div class="faq-item">
+                    <button class="faq-pregunta">
+                        <span>¿La consulta de medicamentos es gratuita?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-respuesta">
+                        <p>Sí, consultar la disponibilidad de medicamentos en PharmaGo es 100% gratuito. No necesitas registrarte ni pagar para usar el buscador.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-pregunta">
+                        <span>¿Con qué frecuencia se actualiza la disponibilidad?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-respuesta">
+                        <p>Nuestro sistema se actualiza cada 5 minutos con información en tiempo real de todos los puntos de dispensación conectados.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-pregunta">
+                        <span>¿Puedo solicitar domicilio de medicamentos?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-respuesta">
+                        <p>Sí, puedes solicitar domicilio directamente desde la plataforma. El envío es gratuito para pedidos superiores a $20.000.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-pregunta">
+                        <span>¿Cómo recibo alertas de disponibilidad?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-respuesta">
+                        <p>Agrega medicamentos a tus favoritos y activa las notificaciones. Te avisaremos cuando vuelvan a estar disponibles.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-pregunta">
+                        <span>¿En qué ciudades tienen cobertura?</span>\                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-respuesta">
+                        <p>Actualmente tenemos cobertura en Bogotá, Medellín, Cali y Barranquilla, con planes de expansión a más ciudades.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ayuda-contacto" data-animate="fade-up" data-delay="200">
+                <p>¿No encontraste tu respuesta?</p>
+                <button class="btn-principal" id="btnAyuda">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Contactar soporte
+                </button>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter-seccion">
+            <div class="newsletter-contenido">
+                <h2>Mantente informado</h2>
+                <p>Recibe alertas de disponibilidad, promociones y novedades directo en tu correo.</p>
+                <div class="newsletter-form">
+                    <input type="email" id="emailNewsletter" placeholder="Tu correo electrónico">
+                    <button class="btn-principal" id="btnNewsletter">Suscribirme</button>
+                </div>
+                <small>Sin spam. Cancela cuando quieras.</small>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo">
+                    <div class="logo-icon">+</div>
+                    Pharma<span>Go</span>
+                </div>
+                <p>Tu plataforma para consultar la disponibilidad de medicamentos en tiempo real.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Servicios</h4>
+                <a href="#buscar">Buscar medicamentos</a>
+                <a href="#puntos">Puntos de dispensación</a>
+                <a href="#categorias">Categorías</a>
+                <a href="#">Domicilio</a>
+            </div>
+            <div class="footer-col">
+                <h4>Compañía</h4>
+                <a href="#">Sobre nosotros</a>
+                <a href="#testimonios">Opiniones</a>
+                <a href="#">Blog</a>
+                <a href="#">Contacto</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Términos de uso</a>
+                <a href="#">Política de privacidad</a>
+                <a href="#">Política de datos</a>
+                <a href="#ayuda">PQRS</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <small>© 2026 PharmaGo. Proyecto académico. Todos los derechos reservados.</small>
+            <small>Hecho con ❤️ en Colombia</small>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal-contenido">
+            <button id="cerrarModal" class="cerrar" aria-label="Cerrar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+
+            <div id="modalIcono" class="modal-icono">💊</div>
+            <h2 id="modalTitulo">PharmaGo</h2>
+            <p id="modalTexto">Información.</p>
+
+            <div id="modalExtra" class="modal-extra" style="display:none"></div>
+
+            <button id="modalBoton" class="btn-principal modal-btn">
+                Entendido
+            </button>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- SCROLL TO TOP -->
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <script src="jh.js"></script>
+
+</body>
+</html>
